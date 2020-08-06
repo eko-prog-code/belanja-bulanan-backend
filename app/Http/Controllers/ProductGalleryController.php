@@ -57,7 +57,7 @@ class ProductGalleryController extends Controller
     {
         $data = $request->all();
         $data['photo'] = $request->file('photo')->store(
-            './assets/product', 'public'
+            '/assets/product', 'public'
         );
 
         ProductGallery::create($data);
