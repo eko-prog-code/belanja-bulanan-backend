@@ -24,7 +24,7 @@ class ProductGallery extends Model
 
     public function getPhotoAttribute($value)
     {
-        return url('storage' .$value);
+        return url('storage/' .$value);
     }
 
 }
