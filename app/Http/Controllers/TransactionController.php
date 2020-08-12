@@ -28,7 +28,7 @@ class TransactionController extends Controller
     {
         $items = Transaction::all();
 
-        return view('pages.Transactions.index')->with([
+        return view('pages.transactions.index')->with([
             'items' => $items
         ]);
     }
@@ -64,7 +64,7 @@ class TransactionController extends Controller
     {
         $item = Transaction::with('details.product')->findOrFail($id);
 
-        return view('pages.Transactions.show')->with([
+        return view('pages.transactions.show')->with([
             'item' => $item
         ]);
     }
@@ -79,7 +79,7 @@ class TransactionController extends Controller
     {
         $item = Transaction::findOrFail($id);
 
-        return view('pages.Transactions.edit')->with([
+        return view('pages.transactions.edit')->with([
             'item' => $item
         ]);
     }
@@ -98,7 +98,7 @@ class TransactionController extends Controller
         $item = Transaction::findOrFail($id);
         $item->update($data);
 
-        return redirect()->route('Transactions.index');
+        return redirect()->route('transactions.index');
     }
 
     /**
@@ -112,7 +112,7 @@ class TransactionController extends Controller
         $item = Transaction::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('Transactions.index');
+        return redirect()->route('transactions.index');
     }
 
     public function setStatus(Request $request, $id)
@@ -126,6 +126,6 @@ class TransactionController extends Controller
 
         $item->save();
 
-        return redirect()->route('Transactions.index');
+        return redirect()->route('transactions.index');
     }
 }
